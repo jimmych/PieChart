@@ -1,0 +1,145 @@
+html,body{
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.nodeCollection{
+	display: inline-flex;
+	position: relative;
+	/*padding: 20px;*/
+	/* margin: 7px; */
+	background-color: gray;
+	box-sizing: border-box;
+	z-index: 1000;
+}
+
+.node, .nodeGridBox{
+	float: left;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	margin: 30px;
+	padding: 13px;
+	z-index: 900;
+	border-radius: 20%;
+	border: 1px solid black;
+	box-sizing: border-box;
+
+	/* To disable highlight */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.node{
+	background-color: #779ECB;
+	cursor: move;
+	cursor: grab;
+	cursor: -webkit-grab;
+}
+
+.node:active, .node.ui-draggable-dragging{
+	cursor: move;
+	cursor: grabbing;
+	cursor: -webkit-grabbing;
+}
+
+.nodeGridBox{
+	border-radius: 20%;
+	border-style: dashed;
+}
+
+.nodeGridBox .removeGridBoxBtn{
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	border-radius: 100%;
+	text-align: center;
+	cursor: pointer;
+}
+
+#nodeGridContainer{
+	display: inline-flex;
+	position: relative;
+	width: 1120px;
+	height: 560px;
+}
+
+.nodeGridBoxCollection{
+	display: inline-block;
+	position: relative;
+	/*padding: 20px;*/
+	/*background-color: aqua;*/
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.nodeGridBox.droppableOver{
+	background-color: #6FFF00;
+}
+
+.nodeGridBox.hasNode{
+	border-style: solid;
+	background-color: #779ECB;
+	cursor: pointer;
+}
+
+/* dragging in editing mode */
+.nodeGridBox.hasNode.grabCursor{
+	cursor: move;
+	cursor: grab;
+	cursor: -webkit-grab;
+}
+
+.nodeGridBox.hasNode.grabCursor:active, .nodeGridBox.hasNode.grabCursor.ui-draggable-dragging{
+	cursor: move;
+	cursor: grabbing;
+	cursor: -webkit-grabbing;
+}
+
+/* end of dragging in editing mode */
+
+.nodeGridBox.removing{
+	background-color: gray;
+}
+
+.nodeGridBox.canConnect{
+	background-color: #6FFF00;
+}
+
+.nodeGridBox.canDisconnect{
+	background-color: #FE0001;
+}
+
+.nodeGridBox.disabled{
+	opacity: .35;
+	filter: Alpha(Opacity=35);
+	background-image: none;
+	cursor: default !important;
+}
+
+.nodeGridBox.selected{
+	background-color: #0bf;
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.nodeGridBox:nth-child(8n+1){
+	clear: left;
+}
+
+/* JsPlumb css */
+._jsPlumb_connector { z-index: 1500; }
+._jsPlumb_endpoint { z-index: 1501; }
+._jsPlumb_overlay { z-index: 1502; }
